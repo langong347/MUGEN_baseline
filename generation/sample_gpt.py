@@ -31,7 +31,7 @@ def parse_args():
     return args
 
 def save_samples(args):
-    gpt_model = MMGPT.load_from_checkpoint(args.gpt_ckpt_file).cuda()
+    gpt_model = MMGPT.load_from_checkpoint(args.gpt_ckpt_file, args=args).cuda()
     gpt_model.eval()
     gpt_model.freeze()
     gpt_model.cuda()

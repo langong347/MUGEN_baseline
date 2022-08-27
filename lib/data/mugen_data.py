@@ -68,7 +68,7 @@ class MUGENDataset(data.Dataset):
     # initialize game assets
     def init_game_assets(self):
         self.game = Game()
-        self.game.load_json(os.path.join(self.dataset_metadata["data_folder"], self.data[0]["video"]["json_file"]))
+        self.game.load_json(os.path.join("datasets/coinrun/coinrun_v2_video_data", self.data[0]["video"]["json_file"]))
         # NOTE: only supports rendering square-size coinrun frame for now
         self.game.video_res = self.args.resolution
 
@@ -171,7 +171,7 @@ class MUGENDataset(data.Dataset):
         return torch.unsqueeze(torch.vstack(frames), dim=3)
 
     def load_json_file(self, idx):
-        self.game.load_json(os.path.join(self.dataset_metadata["data_folder"], self.data[idx]["video"]["json_file"]))
+        self.game.load_json(os.path.join("datasets/coinrun/coinrun_v2_video_data", self.data[idx]["video"]["json_file"]))
         self.game.video_res = self.args.resolution
 
     def __getitem__(self, idx):
@@ -182,7 +182,7 @@ class MUGENDataset(data.Dataset):
         result_dict = {}
 
         if self.args.get_audio:
-            wav_file = os.path.join(self.dataset_metadata["data_folder"], self.data[idx]["video"]["video_file"])
+            wav_file = os.path.join("datasets/coinrun/coinrun_v2_video_data", self.data[idx]["video"]["video_file"])
             result_dict['audio'] = self.get_game_audio(wav_file)
 
         if self.args.get_game_frame:
