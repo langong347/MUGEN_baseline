@@ -29,7 +29,7 @@ For more information, please refer [here](https://mugen-org.github.io/download).
 
 Run the following command to download the pre-trained checkpoints.
 ```
-wget https://dl.noahmt.com/creativity/data/MUGEN_release/checkpoints.zip
+wget https://dl.fbaipublicfiles.com/large_objects/MUGEN_release/checkpoints.zip
 unzip checkpoints
 ```
 Please refer [here](retrieval/README.md) for video-audio-text retrieval details and [here](generation/README.md) for video-audio-text generation details.
